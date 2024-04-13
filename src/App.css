@@ -5,6 +5,8 @@
 body{
   background: #242424;
   font-family: "Poppins", sans-serif;
+  color: #fff;
+  margin: 0;
 }
 
 .homepagewrapper{
@@ -76,7 +78,7 @@ body{
   margin-left: auto;
 }
 
-.joinbtn:hover{
+.joinbtn:hover,.leavebtn:hover{
   background: rgb(213, 111, 111) ;
 }
 
@@ -91,9 +93,10 @@ body{
   border-bottom:2px solid rosybrown ;
 }
 
-.createNewbtn:hover{
-  color:rgb(213, 111, 111) ;
-  border-color: rgb(213, 111, 111);
+.createNewbtn:hover,.copybtn:hover{
+  color:rgb(213, 53, 53) ;
+  border-color: rgb(215, 101, 101);
+  border: solid 1px;
 }
 
 footer{
@@ -101,4 +104,55 @@ footer{
   display: flex;
   justify-content:center;
   margin-top: auto;
+}
+
+/* editor page */
+
+.mainwrap{
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  height: 100vh;
+}
+
+.aside{
+  background: #34374d;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.aside-inner{
+  flex: 1; 
+}
+
+.clientList{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap:wrap ;
+  gap: 20px;
+}
+
+.client{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: bold;
+  gap: 2px;
+}
+
+.logo{
+  border-bottom: 2px solid rosybrown;
+}
+
+.leavebtn{
+  background: rosybrown;
+}
+
+.copybtn{
+  color: rgb(197, 133, 133);
+  transition: all 5s ease-in-out;
 }
