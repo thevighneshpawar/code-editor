@@ -1,25 +1,24 @@
-import React, { useEffect } from 'react';
-import { EditorState, EditorView, basicSetup } from "@codemirror/basic-setup";
-import { javascript } from "@codemirror/lang-javascript";
-
-
-
+import React, { useEffect ,useRef } from 'react';
+import MEditor from "@monaco-editor/react";
 
 function Editor() {
-    useEffect(() => {
-        async function init() {
-            CodeMirror.fromTextArea(document.getElementById('realtimeEditor'), {
-                mode: 'javascript',
-                json: true,
-            });
-        }
-
-        init();
-    }, []);
-
+    const code = "console.log('Monaco Editor!');";
     return (
-        <textarea id="realtimeEditor"></textarea>
-    );
+      <MEditor
+        height="100vh"
+        language="javascript"
+        theme="vs-dark"
+        value={code}
+        options={{
+            inlineSuggest: true,
+            fontSize: "18px",
+            formatOnType: true,
+            autoClosingBrackets: true,
+            autoClosingTags: true,
+            minimap: { scale: 10 }
+          }}
+      />
+    )
 }
 
 export default Editor;

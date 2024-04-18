@@ -25,12 +25,17 @@ function Home() {
     }
 
     const joinRoom =()=>{
-        if(!roomId || !username){
-            toast.error('Room Id & Username is required')
-            return
+        if (!roomId || !username) {
+            toast.error('ROOM ID & username is required');
+            return;
         }
 
-        navigate(`/editor/${roomId}`)
+        // Redirect
+        navigate(`/editor/${roomId}`, {
+            state: {
+                username,
+            },
+        });
     }
 
     const handleInputEnter=(e)=>{

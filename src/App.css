@@ -156,3 +156,9 @@ footer{
   color: rgb(197, 133, 133);
   transition: all 5s ease-in-out;
 }
+
+/* editor */
+
+.editorwrap{
+  padding-top:15px;
+}
