@@ -11,6 +11,7 @@ const server = http.createServer(app)
 const PORT = process.env.PORT || 5000
 const io = new Server(server)
 
+
 const userSocketmap = {}
 
 function getAllConnectedClients(roomId) {
@@ -51,6 +52,13 @@ io.on('connection', socket => {
         });
         console.log('Emitted JOINED event to:', socketId); // Debugging output
     });
+
+    socket.on(ACTIONS.CODE_CHANGE, ({ code, roomId }) => {
+      console.log("updating the code");
+     // Assuming roomId is the second room in socket.rooms array
+     console.log(roomId);
+      io.to(roomId).emit(ACTIONS.SYNC_CODE, { code });
+  });
 
     // this event completely socket move hone sai phele
     socket.on('disconnecting',()=>{
