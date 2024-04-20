@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-const backendUrl = "http://localhost:5000";
+const backendUrl = "https://code-editor-kappa-two.vercel.app/";
 const options = {
     'force new connection': true,
     reconnectionAttempt: 'Infinity',
