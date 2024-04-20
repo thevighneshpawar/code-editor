@@ -1,15 +1,27 @@
 /* eslint-disable */
-import express from 'express'
-import dotenv from 'dotenv'
-import http from 'http'
-import { Server } from 'socket.io'
-import ACTIONS from './src/Action.js'
-dotenv.config()
+import express from 'express';
+import dotenv from 'dotenv';
+import http from 'http';
+import { Server } from 'socket.io';
+import ACTIONS from './src/Action.js';
+import path from 'path';
+import { fileURLToPath } from 'url'; // Import the fileURLToPath function
+dotenv.config();
 
-const app = express()
-const server = http.createServer(app)
-const PORT = process.env.PORT || 5000
-const io = new Server(server)
+// Get the directory path of the current file
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const app = express();
+const server = http.createServer(app);
+const PORT = process.env.PORT || 5000;
+const io = new Server(server);
+
+app.use(express.static('dist'));
+
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 
 
 const userSocketmap = {}
