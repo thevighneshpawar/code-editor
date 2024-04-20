@@ -3,7 +3,7 @@ const backendUrl = "/";
 const options = {
     'force new connection': true,
     reconnectionAttempt: 'Infinity',
-    timeout: 10000,
+    // timeout: 10000,
     transports: ['websocket'],
 };
 
