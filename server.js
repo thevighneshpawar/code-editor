@@ -40,10 +40,10 @@ function getAllConnectedClients(roomId) {
 }
 
 io.on('connection', socket => {
-  console.log('socket connected', socket.id)
+  // console.log('socket connected', socket.id)
 
   socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
-    console.log('Received JOIN event:', { roomId, username }); // Debugging output
+    // console.log('Received JOIN event:', { roomId, username });
 
     // Store the username associated with the socket ID
     userSocketmap[socket.id] = username;
@@ -53,7 +53,7 @@ io.on('connection', socket => {
 
     // Get all connected clients in the room
     const clients = getAllConnectedClients(roomId);
-    console.log('All connected clients:', clients); // Debugging output
+    // console.log('All connected clients:', clients); 
 
     // Emit the JOINED event to all clients in the room
     clients.forEach(({ socketId }) => {
@@ -62,13 +62,13 @@ io.on('connection', socket => {
             username,
             socketId: socket.id
         });
-        console.log('Emitted JOINED event to:', socketId); // Debugging output
+        // console.log('Emitted JOINED event to:', socketId); 
     });
 
     socket.on(ACTIONS.CODE_CHANGE, ({ code, roomId }) => {
-      console.log("updating the code");
+      // console.log("updating the code");
      // Assuming roomId is the second room in socket.rooms array
-     console.log(roomId);
+     // console.log(roomId);
       io.to(roomId).emit(ACTIONS.SYNC_CODE, { code });
   });
 
