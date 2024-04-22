@@ -21,7 +21,7 @@ function Editor() {
 
     const handleChange = (newCode) => {
         // Emit code changes to the server
-        console.log(newCode);
+        // console.log(newCode);
         socket.emit(ACTIONS.CODE_CHANGE, { code: newCode,roomId });
     };
 
