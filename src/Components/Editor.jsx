@@ -35,7 +35,6 @@ function Editor({ onCodeChange, selectedLanguage }) {
 
     const handleChange = (newCode) => {
         // Emit code changes to the server
-        console.log(newCode);
         onCodeChange(newCode)
         socket.emit(ACTIONS.CODE_CHANGE, { code: newCode,roomId });
     };
