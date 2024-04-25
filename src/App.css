@@ -108,11 +108,18 @@ footer{
 
 /* editor page */
 
-.mainwrap{
-  display: grid;
-  grid-template-columns: 230px 1fr;
-  height: 100vh;
+.mainwrap {
+  display: flex;
+  height: 99vh;
+  padding-bottom: 15px;
+  overflow: hidden;
 }
+
+.editorwrap {
+  padding-top: 15px;
+  width: 100%;
+}
+
 
 .aside{
   background: #34374d;
@@ -120,7 +127,11 @@ footer{
   display: flex;
   flex-direction: column;
   gap: 15px;
-
+  transition: all 0.3s ease-in-out;
+  height: 92%;
+  width: 200px;
+  border-block: 4px solid white;
+  border-right:4px solid white ;
 }
 
 .aside-inner{
@@ -159,6 +170,76 @@ footer{
 
 /* editor */
 
-.editorwrap{
-  padding-top:15px;
+
+
+/* sidenav */
+
+.sidenav{
+  border-block: 4px solid white;
+  border-right:4px solid white ;
+}
+.d-none{
+  display: none;
+}
+
+.large-icon {
+  font-size: 34px;
+  padding: 5px;
+  color: rosybrown;
+  margin-bottom: 2rem;
+}
+.inner-sidenav{
+  margin-top: 4rem;
+  padding: 7px;
+}
+
+.inputcode{
+  padding: 14px;
+  position: relative;
+  border-block: 4px solid white;
+  border-right:4px solid white ;
+  height: 92.5%;
+}
+.top-run{
+  display: flex;
+  gap: 2rem;
+ align-items: center;
+  justify-content: end;
+}
+textarea {
+  font-size: 20px;
+  padding: 5px;
+  outline-style: none; 
+  outline: 2px solid rosybrown;
+  border: none;
+}
+
+
+.tab{
+  height: 100vh;
+}
+
+.runbtn{
+  background: rosybrown;  
+  width: 25%;
+  padding: 12px;
+  
+}
+
+.runbtn:hover{
+  background: rgb(204, 110, 110);
+}
+
+.large-icon:hover{
+  color:rgb(204, 110, 110) ;
+}
+
+.form-select{
+  width: 30%;
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+}
+.form-select option{
+  padding: 10px;
 }
