@@ -21,7 +21,7 @@ function Editor({ onCodeChange, selectedLanguage }) {
         const { name: languageName, code: defaultCode } = languageCodeMap[selectedLanguage] || { name: 'cpp', code: '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}\n' };
         setLanguage(languageName);
         setCode(defaultCode);
-        handleChange(defaultCode)
+        handleChange(defaultCode);
         // Listen for code changes from the server
         socket.on(ACTIONS.SYNC_CODE, ({ code }) => {
             setCode(code);
@@ -34,9 +34,9 @@ function Editor({ onCodeChange, selectedLanguage }) {
     }, [selectedLanguage]);
 
     const handleChange = (newCode) => {
-        // console.log(newCode);
-        onCodeChange(newCode);
-        socket.emit(ACTIONS.CODE_CHANGE, { code: newCode, roomId });
+        // Emit code changes to the server
+        onCodeChange(newCode)
+        socket.emit(ACTIONS.CODE_CHANGE, { code: newCode,roomId });
     };
 
     return (
